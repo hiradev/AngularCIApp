@@ -1,7 +1,7 @@
 <?php
 
 namespace Config;
-defined('BASEPATH') OR exit('No direct script access allowed');
+// defined('BASEPATH') OR exit('No direct script access allowed');
 use CodeIgniter\Database\Config;
 
 /**
@@ -30,7 +30,7 @@ class Database extends Config
         'username' => 'root',
         'password' => '',
         'database' => 'master_forms',
-        'DBDriver' => 'sqlsrv',
+        'DBDriver' => 'mysqli', //sqlsrv
         'DBPrefix' => '',
         'pConnect' => false,
         'DBDebug'  => (ENVIRONMENT !== 'development'),

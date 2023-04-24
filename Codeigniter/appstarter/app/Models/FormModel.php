@@ -3,7 +3,7 @@
 namespace App\Models;
 use CodeIgniter\Model;
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+// defined('BASEPATH') OR exit('No direct script access allowed in FormModel');
 
 class FormModel extends Model {
   protected $table                = 'intake';

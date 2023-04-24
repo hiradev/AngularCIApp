@@ -3,6 +3,8 @@
 namespace App\Controllers;
 // defined('BASEPATH') OR exit('No direct script access allowed');
 use App\Models\FormModel;
+use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\API\ResponseTrait;
 
 class Home extends BaseController
 {
@@ -10,8 +12,14 @@ class Home extends BaseController
   {
     $model = new FormModel();
     $data['intake'] = $model->findAll();
-    return $this->respond($data);
-    // return view('welcome_message');
+    //print_r(json_encode($data));
+    //die();
+    if($data){
+      return json_encode($data);
+    } else {
+      print_r('No data');
+    }
+
   }
 
     /**
@@ -24,9 +32,9 @@ class Home extends BaseController
     $data = [
       'code' => $this->request->getVar('code'),
       'name' => $this->request->getVar('name'),
-      'status' => $this->request->getText('status')
+      'status' => $this->request->getVar('status')
     ];
-
+    // die();
     $model->insert($data);
 
     $response = [

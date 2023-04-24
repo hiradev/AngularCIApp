@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-defined('BASEPATH') OR exit('No direct script access allowed in BaseController');
+// defined('BASEPATH') OR exit('No direct script access allowed in BaseController');
 
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
