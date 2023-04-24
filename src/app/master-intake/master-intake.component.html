@@ -1,8 +1,8 @@
 <!-- Master Intake -->
 <div class="container">
-  <div [hidden]="submitted">
+  <div>
     <h1>Master Intake</h1>
-     <form *ngIf="!submitted" #heroForm="ngForm"> <!-- (ngSubmit)="onSubmit()" *ngIf="!submitted" -->
+     <form #heroForm="ngForm"> <!-- (ngSubmit)="onSubmit()" *ngIf="!submitted" -->
 
       <div class="form-group" id="id">
         <label for="name">Code</label>

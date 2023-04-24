@@ -14,9 +14,6 @@ import { FormService } from 'src/app/services/form.service';
 export class MasterIntakeComponent implements OnInit{
 
   status = ['Active', 'Inactive'];
-  submitted = false;
-  errors: any;
-
   @Input() intake: Intake = { id: '', code: '', name: '', status: '' };
 
   constructor(private FormService: FormService, private location: Location) { }

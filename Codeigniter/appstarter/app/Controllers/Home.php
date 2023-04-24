@@ -44,21 +44,68 @@ class Home extends BaseController
           'success' => 'Intake created successfully'
       ]
     ];
-    return $this->respondCreated($response);
+    return $this->response->setJSON($response); //response->setJSON==respondCreated
   }
 
     /**
      * Get a single class by id
      */
-    public function show($id)
+    public function show($id = null)
     {
       $model = new FormModel();
       $data = $model->getWhere(['id' => $id])->getResult();
+      // print_r(json_encode($data));
+      // die();
       if($data){
-        return $this->respond($data);
+        return $this->response->setJSON($data);
       }else{
         return $this->failNotFound('No intake found');
       }
     }
+
+
+        // update
+        public function update($id = null)
+        {
+          $model = new FormModel();
+          $id = $this->request->getVar('id');
+          $data = [
+              'code' => 'MI_008',
+              'name' => 'New_Hirusha',
+              'status'  => 'Inactive'
+          ];
+          print_r(json_encode($data));
+          $model->update($id, $data);
+          die();
+          $response = [
+            'status'   => 200,
+            'error'    => null,
+            'messages' => [
+                'success' => 'Employee updated successfully'
+            ]
+        ];
+        return $this->response->setJSON($response);
+      }
+
+
+
+      // delete
+      public function delete($id = null){
+          $model = new FormModel();
+          $data = $model->where('id', $id)->delete($id);
+          if($data){
+              $model->delete($id);
+              $response = [
+                  'status'   => 200,
+                  'error'    => null,
+                  'messages' => [
+                      'success' => 'Employee successfully deleted'
+                  ]
+              ];
+              return $this->respondDeleted($response);
+          }else{
+              return $this->failNotFound('No employee found');
+          }
+      }
 
 }
