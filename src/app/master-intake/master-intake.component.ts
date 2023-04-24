@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { Location } from '@angular/common';
 import {Intake} from '../intake';
-import { FormService } from 'src/app/services/form.service';
+import { FormService } from '../services/form.service';
 
 @Component({
   selector: 'app-master-intake',
