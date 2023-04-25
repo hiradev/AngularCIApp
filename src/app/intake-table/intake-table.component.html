@@ -1,0 +1,41 @@
+
+<div class="container-table mat-elevation-z8">
+   <mat-table #table [dataSource]="dataSource"> <!-- [dataSource]="dataSource" -->
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Batch Code Column -->
+    <ng-container matColumnDef="batch_code">
+      <mat-header-cell *matHeaderCellDef> Batch Code </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.batch_code}} </mat-cell>
+    </ng-container>
+
+    <!-- Program Code Column -->
+    <ng-container matColumnDef="program_code">
+      <mat-header-cell *matHeaderCellDef> Program Code </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.program_code}} </mat-cell>
+    </ng-container>
+
+    <!-- Intake Code Column -->
+    <ng-container matColumnDef="intake_code">
+      <mat-header-cell *matHeaderCellDef> Intake Code </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.intake_code}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

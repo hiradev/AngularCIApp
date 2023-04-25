@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+
+
 import {Intake} from '../intake';
 import { FormService } from '../services/form.service';
 
@@ -14,30 +16,25 @@ import { FormService } from '../services/form.service';
 export class MasterIntakeComponent implements OnInit{
 
   status = ['Active', 'Inactive'];
-  @Input() intake: Intake = { id: '', code: '', name: '', status: '' };
+  batch_code = ['Batch 001', 'Batch 002', 'Batch 003'];
+  program_code= ['Program 001','Program 002','Program 003'];
 
-  constructor(private FormService: FormService, private location: Location) { }
+  @Input() intake: Intake = { batch_code:'', program_code:'', code: '', name: '', status: '' };
+
+  constructor(private FormService: FormService, private location: Location, private route: ActivatedRoute) { }
 
   ngOnInit() {}
 
-  createClass(): void {
-    this.FormService.addIntake(this.intake).subscribe(() => this.goBack());
+  createClass(intake:Intake) {
+    this.FormService.addIntake(this.intake).subscribe(data=> console.log(JSON.stringify(data))); //() => this.goBack()
+    // this.FormService.showSuccess(this.intake.name+" Added","");
+    alert(this.intake.name+" Added");
+      // this.FormService.showError("Intake error","");
     }
 
-    goBack(): void {
-      this.location.back();
-    }
-
-
-
-
-  // onSubmit() { this.submitted = true; }
-
-  // Reveal in html:
-  //   Name via form.controls = {{showFormControls(heroForm)}}
-
-
-  /////////////////////////////
+  displayTable():void{
+    this.FormService.getIntakes().subscribe(data=> console.log(JSON.stringify(data)));
+  }
 
 
 

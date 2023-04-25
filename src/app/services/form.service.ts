@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { ToastrService } from 'ngx-toastr';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Intake } from '../intake';
@@ -13,10 +13,9 @@ const httpOptions = {
 })
 
 export class FormService {
-
+  private data:any;
   private baseURL = 'http://localhost:8080/';
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private toastr: ToastrService) { }
 
     /** GET products from the server */
     getIntakes(): Observable<Intake[]> {
@@ -32,8 +31,12 @@ export class FormService {
     /** POST: add a new product to the server */
     addIntake(intake: Intake) {
     //console.log(product);
-      return this.httpClient.post(this.baseURL + 'master-intake', intake, {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'text' as 'json'});
+      return this.httpClient.post(this.baseURL + 'master-intake', intake, {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'string' as 'json'
+      });
     }
+
+
 
   // readAll(): Observable<any> {
   //   return this.httpClient.get(baseURL);
@@ -43,7 +46,14 @@ export class FormService {
   //   return this.httpClient.get(`${baseURL}/${code}`);
   // }
 
-  // create(data): Observable<any> {
-  //   return this.httpClient.post(baseURL, data);
+  // create(intake: Intake): Observable<any> {
+  //   return this.httpClient.post(this.baseURL, intake);
   // }
+
+  showSuccess(message, title){
+    this.toastr.success(message, title);
+}
+showError(message, title){
+    this.toastr.error(message, title);
+}
 }

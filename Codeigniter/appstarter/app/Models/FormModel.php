@@ -8,7 +8,7 @@ use CodeIgniter\Model;
 class FormModel extends Model {
   protected $table                = 'intake';
   protected $primaryKey           = 'id';
-  protected $allowedFields        = ['code','name', 'status'];
+  protected $allowedFields        = ['batch_code','program_code','code','name', 'status'];
   protected $db;
 
   public function _construct(){

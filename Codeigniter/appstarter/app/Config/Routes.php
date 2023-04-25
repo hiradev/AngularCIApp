@@ -32,9 +32,10 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->post('master-intake','Home::create');
+
 $routes->get('master-intake/(:segment)','Home::show/$1');
 $routes->put('master-intake/(:segment)','Home::update/$1');
-$routes->delete('master-intake/1','Home::delete/1');
+$routes->delete('master-intake/(:segment)','Home::delete/$1');
 
 /*
  * --------------------------------------------------------------------

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 // import { RouterModule, Routes } from "@angular/router";
 
 import { HttpClientModule }    from '@angular/common/http';
@@ -10,12 +11,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MasterIntakeComponent } from './master-intake/master-intake.component';
 
-import { MasterBatchComponent } from './master-batch/master-batch.component';
-import { MasterProgramComponent } from './master-program/master-program.component';
 import { MenuComponent } from './menu/menu.component';
 
 import {MatMenuModule} from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+
+import { ToastrModule } from 'ngx-toastr';
+import { IntakeTableComponent } from './intake-table/intake-table.component';
 
 // const appRoutes: Routes = [
 //   { path: 'master-intake', component: HeroFormComponent },
@@ -29,17 +33,19 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     FormsModule,
     MatMenuModule,
+    MatTableModule,
     MatIconModule,
+    MatSortModule,
     HttpClientModule,
     AppRoutingModule,
+    ToastrModule.forRoot()
   ],
 
   declarations: [
     AppComponent,
     MasterIntakeComponent,
-    MasterBatchComponent,
-    MasterProgramComponent,
-    MenuComponent
+    MenuComponent,
+    IntakeTableComponent
   ],
   providers: [],
   bootstrap: [ AppComponent ]
