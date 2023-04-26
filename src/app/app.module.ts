@@ -21,6 +21,7 @@ import {MatSortModule} from '@angular/material/sort';
 import { ToastrModule } from 'ngx-toastr';
 import { IntakeTableComponent } from './intake-table/intake-table.component';
 
+
 // const appRoutes: Routes = [
 //   { path: 'master-intake', component: HeroFormComponent },
 //   { path: 'master-batch', component: MasterBatchComponent },

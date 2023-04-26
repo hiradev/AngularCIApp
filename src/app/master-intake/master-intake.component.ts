@@ -25,7 +25,8 @@ export class MasterIntakeComponent implements OnInit{
 
   ngOnInit() {}
 
-  createClass(intake:Intake) {
+  createClass(intake:Intake)
+  {
     this.FormService.addIntake(this.intake).subscribe(data=> console.log(JSON.stringify(data))); //() => this.goBack()
     // this.FormService.showSuccess(this.intake.name+" Added","");
     alert(this.intake.name+" Added");

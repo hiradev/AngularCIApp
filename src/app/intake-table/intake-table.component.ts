@@ -2,6 +2,8 @@ import { Component , OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Intake} from '../intake';
 import { FormService } from '../services/form.service';
+import { HttpClient } from '@angular/common/http';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-intake-table',
@@ -10,15 +12,13 @@ import { FormService } from '../services/form.service';
 })
 export class IntakeTableComponent implements OnInit{
   displayedColumns = ['batch_code', 'program_code', 'intake_code', 'name', 'status'];
-  dataSource = ELEMENT_DATA;
+  dataSource;
   data: Intake[]=[];
 
   constructor(private route: ActivatedRoute, private FormService: FormService) { }
   ngOnInit() {
-		this.getIntakes();
-	}
-  getIntakes(): void {
-		this.FormService.getIntakes().subscribe(data => this.data = data);
+		this.FormService.getIntakes().subscribe(data => {this.dataSource = new MatTableDataSource(data);
+    });
 	}
 }
 
@@ -28,7 +28,14 @@ export interface Element {
   intake_code: string;
   name: string;
   status: string;
+
+
 }
 
 const ELEMENT_DATA: Element[] = [
   {batch_code: "1", program_code: '2', intake_code: '3', name:'Hirusha',status:'Active'}];
+
+  export class Httpsend {
+    constructor (private http: HttpClient){}
+
+  }
