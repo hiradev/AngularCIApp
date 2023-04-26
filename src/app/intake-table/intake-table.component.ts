@@ -1,36 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormService } from '../services/form.service';
-import { MatTableDataSource } from '@angular/material/table';
+import { IntakeDataSource } from '../intake.datasource';
 import { Intake } from '../intake';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-intake-table',
   templateUrl: './intake-table.component.html',
   styleUrls: ['./intake-table.component.css'],
 })
-export class IntakeTableComponent implements OnInit {
+export class IntakeTableComponent {
 
-  intake!: Intake[];
+    listIntakes!:Intake[];
 
-  constructor(
-    private FormService: FormService
-  ) {}
-
-  ngOnInit() {
-    this.fetchIntakes();
-  }
-
-  dataSource: any;
-
-  fetchIntakes() {
-    this.FormService.getIntakes().subscribe((data) => {
-      this.intake = data;
-      this.dataSource = new MatTableDataSource(this.intake);
-      console.log('list of intakes', this.intake);
-    });
-  }
-
-  displayedColumns: string[] = [
+    displayedColumns: string[] = [
     'batch_code',
     'program_code',
     'code',
@@ -38,22 +21,21 @@ export class IntakeTableComponent implements OnInit {
     'status',
   ];
 
-  // dataSource= new MatTableDataSource<Elements>(ELEMENT_DATA);
-}
-// export interface Elements {
-//   batch_code: string;
-//   program_code: string;
-//   intake_code: string;
-//   name: string;
-//   status: string;
-// }
+  constructor(private formService: FormService) {}
 
-// const ELEMENT_DATA: Elements[] = [
-//   {
-//     batch_code: '1',
-//     program_code: '2',
-//     intake_code: '3',
-//     name: 'hirusha',
-//     status: 'Active',
-//   },
-// ];
+  ngOnInit(){
+    this.fetchIntakes();
+  }
+
+  fetchIntakes() {
+    this.formService.getIntakes().subscribe(data=>{
+      this.listIntakes = data
+      this.dataSource = new MatTableDataSource(this.listIntakes)
+      console.log('list of intakes',this.listIntakes)
+    })
+  }
+
+  dataSource: any;
+
+}
+

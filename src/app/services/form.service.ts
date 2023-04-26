@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Intake } from '../intake';
 
@@ -12,19 +11,24 @@ import { Intake } from '../intake';
 
 export class FormService {
 
-  constructor(private httpClient: HttpClient, private toastr: ToastrService) { }
+  constructor(private httpClient: HttpClient) { }
 
   httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  private data:any;
   private baseURL = 'http://localhost:8080/';
 
 
     /** GET products from the server */
     getIntakes(): Observable<any> {
-      return this.httpClient.get(this.baseURL,{headers: this.httpOptions.headers});
+      const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
+      const requestOptions: Object = {
+        headers: headers,
+        responseType: 'text'
+      }
+      const URL = `${this.baseURL}`;
+      return this.httpClient.get<any>(URL, requestOptions);
     }
 
      /** GET product by id. Will 404 if id not found */
@@ -54,10 +58,4 @@ export class FormService {
   //   return this.httpClient.post(this.baseURL, intake);
   // }
 
-  showSuccess(message, title){
-    this.toastr.success(message, title);
-}
-showError(message, title){
-    this.toastr.error(message, title);
-}
 }

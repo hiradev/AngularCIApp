@@ -1,5 +1,5 @@
 <div class="container-table mat-elevation-z8">
-  <mat-table #table [dataSource]="dataSource"> <!-- [dataSource]="dataSource" -->
+  <table mat-table  [dataSource]="dataSource"> <!-- [dataSource]="dataSource" -->
 
     <!-- Batch Code Column -->
     <ng-container matColumnDef="batch_code">
@@ -33,5 +33,5 @@
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+  </table>
 </div>

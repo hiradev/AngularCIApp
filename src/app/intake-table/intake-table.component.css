@@ -14,3 +14,7 @@ mat-header-cell{
   font-size: medium;
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.41);
 }
+
+mat-cell{
+  color: black;
+}
