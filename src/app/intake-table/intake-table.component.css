@@ -1,11 +1,16 @@
-.example-container {
+.container-table {
   display: flex;
   flex-direction: column;
   max-height: 500px;
   min-width: 300px;
 }
 
-.mat-table {
+mat-table {
   overflow: auto;
   max-height: 500px;
+}
+
+mat-header-cell{
+  font-size: medium;
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.41);
 }

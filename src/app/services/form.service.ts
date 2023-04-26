@@ -4,22 +4,27 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Intake } from '../intake';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class FormService {
-  private data:any;
-  private baseURL = 'http://localhost:8080/';
+
   constructor(private httpClient: HttpClient, private toastr: ToastrService) { }
 
+  httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
+  private data:any;
+  private baseURL = 'http://localhost:8080/';
+
+
     /** GET products from the server */
-    getIntakes(): Observable<Intake[]> {
-      return this.httpClient.get<Intake[]>(this.baseURL + 'master-intake');
+    getIntakes(): Observable<any> {
+      return this.httpClient.get(this.baseURL,{headers: this.httpOptions.headers});
     }
 
      /** GET product by id. Will 404 if id not found */
@@ -30,7 +35,6 @@ export class FormService {
 
     /** POST: add a new product to the server */
     addIntake(intake: Intake) {
-    //console.log(product);
       return this.httpClient.post(this.baseURL + 'master-intake', intake, {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'string' as 'json'
       });
@@ -43,7 +47,7 @@ export class FormService {
   // }
 
   // read(code): Observable<any> {
-  //   return this.httpClient.get(`${baseURL}/${code}`);
+  //   return this.httpClient.get(`${baseURL}/${id}`);
   // }
 
   // create(intake: Intake): Observable<any> {

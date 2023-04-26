@@ -20,6 +20,10 @@ import {MatSortModule} from '@angular/material/sort';
 
 import { ToastrModule } from 'ngx-toastr';
 import { IntakeTableComponent } from './intake-table/intake-table.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import {MatDialogModule} from '@angular/material/dialog';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 
 
 // const appRoutes: Routes = [
@@ -38,15 +42,18 @@ import { IntakeTableComponent } from './intake-table/intake-table.component';
     MatIconModule,
     MatSortModule,
     HttpClientModule,
+    MatDialogModule,
+    MdbModalModule,
     AppRoutingModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgbModule
   ],
 
   declarations: [
     AppComponent,
     MasterIntakeComponent,
     MenuComponent,
-    IntakeTableComponent
+    IntakeTableComponent,
   ],
   providers: [],
   bootstrap: [ AppComponent ]

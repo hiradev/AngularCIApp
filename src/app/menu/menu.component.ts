@@ -1,25 +1,56 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import {MatMenuModule} from '@angular/material/menu';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.css'],
 })
 
 export class MenuComponent {
-  constructor(private router: Router) { }
 
-  goToProgramPage() {
-    this.router.navigate(['/master-program']);
+
+  openModal(){
+    const modelDiv = document.getElementById('myModal');
+    if(modelDiv!=null){
+      modelDiv.style.display = 'block';
+      modelDiv.style.backdropFilter = 'blur(10px)';
+    }
   }
 
-  goToIntakePage() {
-    this.router.navigate(['/master-intake']);
+  closeModal(){
+    const modelDiv = document.getElementById('myModal');
+    if(modelDiv!=null){
+      modelDiv.style.display = 'none';
+    }
   }
 
-  goToBatchPage() {
-    this.router.navigate(['/master-batch']);
-  }
+
+
+
+
+  // closeResult = '';
+  // constructor(private modalService: NgbModal) {}
+
+  // open(content) {
+	// 	this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
+	// 		(result) => {
+	// 			this.closeResult = `Closed with: ${result}`;
+	// 		},
+	// 		(reason) => {
+	// 			this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+	// 		},
+	// 	);
+	// }
+
+	// private getDismissReason(reason: any): string {
+	// 	if (reason === ModalDismissReasons.ESC) {
+	// 		return 'by pressing ESC';
+	// 	} else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+	// 		return 'by clicking on a backdrop';
+	// 	} else {
+	// 		return `with: ${reason}`;
+	// 	}
+	// }
 }
+

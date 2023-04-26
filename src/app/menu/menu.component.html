@@ -1,8 +1,33 @@
-<button type="button" mat-button (click)="goToIntakePage();">Master-Intake</button>
-<!-- <button mat-button (click)="goToBatchPage();">Master-Batch</button>
+<!-- <button type="button" mat-button (click)="goToIntakePage()">Master-Intake</button>
+<button mat-button (click)="goToBatchPage();">Master-Batch</button>
 <button mat-button (click)="goToProgramPage();">Master-Program</button> -->
-<!-- Modal -->
-<button type="button" data-toggle="modal" data-target="#exampleModal">
-  Launch Intake modal
+
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" (click)="openModal()">
+  Open modal
 </button>
 
+<!-- The Modal -->
+<div class="modal" id="myModal" >
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h2 class="modal-title">Intake Form</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closeModal()"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <app-master-intake></app-master-intake>
+      </div>
+
+      <!-- Modal footer -->
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+      </div> -->
+
+    </div>
+  </div>
+</div>

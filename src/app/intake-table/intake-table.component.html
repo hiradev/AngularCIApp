@@ -1,9 +1,5 @@
-
 <div class="container-table mat-elevation-z8">
-   <mat-table #table [dataSource]="dataSource"> <!-- [dataSource]="dataSource" -->
-
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
+  <mat-table #table [dataSource]="dataSource"> <!-- [dataSource]="dataSource" -->
 
     <!-- Batch Code Column -->
     <ng-container matColumnDef="batch_code">
@@ -18,9 +14,9 @@
     </ng-container>
 
     <!-- Intake Code Column -->
-    <ng-container matColumnDef="intake_code">
+    <ng-container matColumnDef="code">
       <mat-header-cell *matHeaderCellDef> Intake Code </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.intake_code}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.code}} </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
