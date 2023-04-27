@@ -9,7 +9,9 @@ import { HttpClientModule }    from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { MasterIntakeComponent } from './master-intake/master-intake.component';
+
+import { MasterIntakeComponent } from './intake/master-intake/master-intake.component';
+import { MasterBatchComponent } from './batch/master-batch/master-batch.component';
 
 import { MenuComponent } from './menu/menu.component';
 
@@ -19,17 +21,21 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 
 import { ToastrModule } from 'ngx-toastr';
-import { IntakeTableComponent } from './intake-table/intake-table.component';
+import { IntakeTableComponent } from './intake/intake-table/intake-table.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {MatDialogModule} from '@angular/material/dialog';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
-import { TableIntakeComponent } from './table-intake/table-intake.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { IntakeComponent } from './intake/intake.component';
+import { ModalComponent } from './intake/modal/modal.component';
+import { BatchComponent } from './batch/batch.component';
+import { BatchModalComponent } from './batch/batch-modal/batch-modal.component';
+import { BatchTableComponent } from './batch/batch-table/batch-table.component';
 
 // const appRoutes: Routes = [
 //   { path: 'master-intake', component: HeroFormComponent },
@@ -60,10 +66,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
   declarations: [
     AppComponent,
     MasterIntakeComponent,
+    MasterBatchComponent,
     MenuComponent,
-    IntakeTableComponent,
-    TableIntakeComponent,
     NavBarComponent,
+    IntakeTableComponent,
+    IntakeComponent,
+    ModalComponent,
+    BatchComponent,
+    BatchModalComponent,
+    BatchTableComponent
   ],
   providers: [],
   bootstrap: [ AppComponent ]

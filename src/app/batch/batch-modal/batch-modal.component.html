@@ -1,0 +1,30 @@
+
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" (click)="openModal()">
+  Open Batch
+</button>
+
+<!-- The Modal -->
+<div class="modal" id="myModal" >
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h2 class="modal-title">Intake Form</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closeModal()"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <app-master-batch/>
+      </div>
+
+      <!-- Modal footer -->
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+      </div> -->
+
+    </div>
+  </div>
+</div>
