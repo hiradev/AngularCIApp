@@ -11,12 +11,12 @@ class Home extends BaseController
   public function index()
   {
     $model = new FormModel();
-    $data = $model->findAll();
+    $data['intake'] = $model->findAll();
     //$data['intake'] = $model->findAll();
     //print_r(json_encode($data));
     //die();
-    if($data){
-      return json_encode($data);
+    if($data['intake']){
+      return json_encode($data['intake']);
     } else {
       print_r('No data');
     }
