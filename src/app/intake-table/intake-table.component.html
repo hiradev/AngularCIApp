@@ -1,37 +1,40 @@
 <div class="container-table mat-elevation-z8">
-  <table mat-table  [dataSource]="dataSource"> <!-- [dataSource]="dataSource" -->
+  <div *ngIf="dataSource.isLoading$ | async">Loading ...</div> <!-- *ngIf="dataSource.isLoading$ | async" -->
+  <mat-table table [dataSource]="dataSource" class="user-table"> <!-- [dataSource]="dataSource" -->
 
     <!-- Batch Code Column -->
     <ng-container matColumnDef="batch_code">
-      <mat-header-cell *matHeaderCellDef> Batch Code </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.batch_code}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef class="user-table-cell"> Batch Code </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="user-table-cell"> {{element.batch_code}} </mat-cell>
     </ng-container>
 
     <!-- Program Code Column -->
     <ng-container matColumnDef="program_code">
-      <mat-header-cell *matHeaderCellDef> Program Code </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.program_code}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef class="user-table-cell"> Program Code </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="user-table-cell"> {{element.program_code}} </mat-cell>
     </ng-container>
 
     <!-- Intake Code Column -->
     <ng-container matColumnDef="code">
-      <mat-header-cell *matHeaderCellDef> Intake Code </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.code}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef class="user-table-cell"> Intake Code </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="user-table-cell"> {{element.code}} </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef class="user-table-cell"> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="user-table-cell"> {{element.name}} </mat-cell>
     </ng-container>
 
     <!-- Status Column -->
     <ng-container matColumnDef="status">
-      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef class="user-table-cell"> Status </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="user-table-cell"> {{element.status}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </table>
+  </mat-table>
 </div>
+
+

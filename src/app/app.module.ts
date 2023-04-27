@@ -24,7 +24,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {MatDialogModule} from '@angular/material/dialog';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { TableIntakeComponent } from './table-intake/table-intake.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 // const appRoutes: Routes = [
 //   { path: 'master-intake', component: HeroFormComponent },
@@ -44,7 +49,10 @@ import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
     HttpClientModule,
     MatDialogModule,
     MdbModalModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
+    MDBBootstrapModule,
+    MatSidenavModule,
     ToastrModule.forRoot(),
     NgbModule
   ],
@@ -54,6 +62,8 @@ import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
     MasterIntakeComponent,
     MenuComponent,
     IntakeTableComponent,
+    TableIntakeComponent,
+    NavBarComponent,
   ],
   providers: [],
   bootstrap: [ AppComponent ]

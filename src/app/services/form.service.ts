@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Intake } from '../intake';
-
+import { IntakeAll } from '../intakeall';
 
 
 @Injectable({
@@ -11,7 +11,7 @@ import { Intake } from '../intake';
 
 export class FormService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -21,25 +21,20 @@ export class FormService {
 
 
     /** GET products from the server */
-    getIntakes(): Observable<any> {
-      const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
-      const requestOptions: Object = {
-        headers: headers,
-        responseType: 'text'
-      }
+    getIntakes() {
       const URL = `${this.baseURL}`;
-      return this.httpClient.get<any>(URL, requestOptions);
+      return this.http.get<Intake[]>(URL);
     }
 
      /** GET product by id. Will 404 if id not found */
     getIntake(id: string): Observable<any> {
       const url = `${this.baseURL}/master-intake/${id}`;
-      return this.httpClient.get<Intake>(url);
+      return this.http.get<Intake>(url);
     }
 
     /** POST: add a new product to the server */
     addIntake(intake: Intake) {
-      return this.httpClient.post(this.baseURL + 'master-intake', intake, {
+      return this.http.post(this.baseURL + 'master-intake', intake, {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }), responseType: 'string' as 'json'
       });
     }

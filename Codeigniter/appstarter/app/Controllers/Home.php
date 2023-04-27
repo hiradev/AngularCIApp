@@ -11,7 +11,8 @@ class Home extends BaseController
   public function index()
   {
     $model = new FormModel();
-    $data['intake'] = $model->findAll();
+    $data = $model->findAll();
+    //$data['intake'] = $model->findAll();
     //print_r(json_encode($data));
     //die();
     if($data){

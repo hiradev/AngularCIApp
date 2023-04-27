@@ -1,18 +1,34 @@
-import { MatTableDataSource } from "@angular/material/table";
-import { Observable, Subscription } from "rxjs";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Intake } from './intake';
+import { DataSource } from '@angular/cdk/collections';
+import { FormService } from './services/form.service';
 
-export class IntakeDataSource extends MatTableDataSource<Intake> {
-  private intake: Intake[] = [];
+@Injectable()
+export class IntakeDataSource extends DataSource<Intake> {
+  data$ = new BehaviorSubject<Intake[]>([]);
+  isLoading$ = new BehaviorSubject<boolean>(false);
 
-  private dataList$: Subscription;
-
-  constructor(intake: Observable<Intake>) {
+  constructor(private formService: FormService) {
     super();
-    this.dataList$ = intake.subscribe(data => {
-      this.intake.push(data);
-      this.data = this.intake;
-    });
   }
 
+  connect(): Observable<Intake[]> {
+    // return this.data$.asObservable();
+    console.log(this.formService.getIntakes());
+    return this.formService.getIntakes();
+  }
+
+  disconnect(): void {
+    this.data$.complete();
+  }
+
+  loadIntake(): void {
+    this.isLoading$.next(true);
+    this.formService.getIntakes().subscribe((data) => {
+      this.data$.next(data);
+      this.isLoading$.next(false);
+      console.table(data);
+    });
+  }
 }
