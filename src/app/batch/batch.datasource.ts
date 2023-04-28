@@ -15,8 +15,8 @@ export class BatchDataSource extends DataSource<Batch> {
 
   connect(): Observable<Batch[]> {
     // return this.data$.asObservable();
-    console.log(this.formService.getIntakes());
-    return this.formService.getIntakes();
+    console.log(this.formService.getBatchs());
+    return this.formService.getBatchs();
   }
 
   disconnect(): void {
@@ -25,7 +25,7 @@ export class BatchDataSource extends DataSource<Batch> {
 
   loadIntake(): void {
     this.isLoading$.next(true);
-    this.formService.getIntakes().subscribe((data) => {
+    this.formService.getBatchs().subscribe((data) => {
       this.data$.next(data);
       this.isLoading$.next(false);
       console.table(data);

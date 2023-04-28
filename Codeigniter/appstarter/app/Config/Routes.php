@@ -11,7 +11,7 @@ $routes = Services::routes();
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('App\Models');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -30,12 +30,18 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+// --------------------------------- Intake ---------------------------------
 $routes->get('/', 'Home::index');
 $routes->post('master-intake','Home::create');
 
 $routes->get('master-intake/(:segment)','Home::show/$1');
 $routes->put('master-intake/(:segment)','Home::update/$1');
 $routes->delete('master-intake/(:segment)','Home::delete/$1');
+
+// --------------------------------- Batch ---------------------------------
+$routes->get('master-batch', 'BatchController::index');
+$routes->post('master-batch','BatchController::create');
 
 /*
  * --------------------------------------------------------------------

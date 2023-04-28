@@ -1,0 +1,5 @@
+mat-header-cell{
+  font-size: medium;
+  font-weight: bolder;
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.41);
+}

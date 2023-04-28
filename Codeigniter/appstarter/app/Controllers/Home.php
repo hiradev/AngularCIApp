@@ -12,9 +12,6 @@ class Home extends BaseController
   {
     $model = new FormModel();
     $data['intake'] = $model->findAll();
-    //$data['intake'] = $model->findAll();
-    //print_r(json_encode($data));
-    //die();
     if($data['intake']){
       return json_encode($data['intake']);
     } else {
@@ -31,8 +28,6 @@ class Home extends BaseController
   {
     $model = new FormModel();
     $data = [
-      'batch_code' => $this->request->getVar('batch_code'),
-      'program_code' => $this->request->getVar('program_code'),
       'code' => $this->request->getVar('code'),
       'name' => $this->request->getVar('name'),
       'status' => $this->request->getVar('status')

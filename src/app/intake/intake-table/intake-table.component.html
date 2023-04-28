@@ -3,16 +3,16 @@
   <mat-table table [dataSource]="dataSource" class="user-table"> <!-- [dataSource]="dataSource" -->
 
     <!-- Batch Code Column -->
-    <ng-container matColumnDef="batch_code">
+    <!-- <ng-container matColumnDef="batch_code">
       <mat-header-cell *matHeaderCellDef class="user-table-cell"> Batch Code </mat-header-cell>
       <mat-cell *matCellDef="let element" class="user-table-cell"> {{element.batch_code}} </mat-cell>
-    </ng-container>
+    </ng-container> -->
 
     <!-- Program Code Column -->
-    <ng-container matColumnDef="program_code">
+    <!-- <ng-container matColumnDef="program_code">
       <mat-header-cell *matHeaderCellDef class="user-table-cell"> Program Code </mat-header-cell>
       <mat-cell *matCellDef="let element" class="user-table-cell"> {{element.program_code}} </mat-cell>
-    </ng-container>
+    </ng-container> -->
 
     <!-- Intake Code Column -->
     <ng-container matColumnDef="code">
@@ -29,7 +29,7 @@
     <!-- Status Column -->
     <ng-container matColumnDef="status">
       <mat-header-cell *matHeaderCellDef class="user-table-cell"> Status </mat-header-cell>
-      <mat-cell *matCellDef="let element" class="user-table-cell"> {{element.status}} </mat-cell>
+      <mat-cell *matCellDef="let element" class="user-table-cell-status"> {{element.status}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

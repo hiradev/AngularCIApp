@@ -11,9 +11,8 @@ export class BatchTableComponent implements OnInit  {
   dataSource = new BatchDataSource(this.formService);
 
   displayedColumns: string[] = [
-    'batch_code',
-    'program_code',
     'code',
+    'intake_code',
     'name',
     'status'
   ];

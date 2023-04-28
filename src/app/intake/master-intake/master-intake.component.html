@@ -5,26 +5,6 @@
      <form #ngForm="ngForm" (ngSubmit)="createClass(ngForm.value)"> <!-- (ngSubmit)="onSubmit()" *ngIf="!submitted" -->
 
       <div class="form-group" id="id">
-        <label for="name">Batch Code</label>
-          <select class="form-control" id="batch_code" required [(ngModel)]="intake.batch_code" name="batch_code" #pow="ngModel">
-            <option *ngFor="let pow of batch_code" [value]="pow">{{pow}}</option>
-          </select>
-        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-          Batch Code is required
-        </div>
-      </div>
-
-      <div class="form-group" id="id">
-        <label for="name">Program Code</label>
-        <select class="form-control" id="program_code" required [(ngModel)]="intake.program_code" name="program_code" #pow="ngModel">
-          <option *ngFor="let pow of program_code" [value]="pow">{{pow}}</option>
-        </select>
-        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-          Program_Code is required
-        </div>
-      </div>
-
-      <div class="form-group" id="id">
         <label for="name">Intake Code</label>
         <input type="text" class="form-control" id="code" required [(ngModel)]="intake.code" name="code" #name="ngModel">
         <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
@@ -53,16 +33,6 @@
       <button type="submit" class="btn btn-success">Submit</button>
       <button type="button" class="btn btn-default" (click)="ngForm.reset()">Add New User</button>
 
-      <!-- &nbsp;&nbsp;
-      <button type="button" class="btn btn-default" (click)="newHero()">New Hero</button>
-      <i>without</i> reset -->
-
-      <!-- NOT SHOWN IN DOCS -->
-      <!-- <div>
-        <hr>
-        Name via form.controls = {{showFormControls(heroForm)}}
-      </div> -->
-      <!-- - -->
     </form>
   </div>
 </div>

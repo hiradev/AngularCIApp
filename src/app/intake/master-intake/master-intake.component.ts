@@ -12,12 +12,8 @@ import { FormService } from '../services/form.service';
 })
 export class MasterIntakeComponent implements OnInit {
   status = ['Active', 'Inactive'];
-  batch_code = ['Batch 001', 'Batch 002', 'Batch 003'];
-  program_code = ['Program 001', 'Program 002', 'Program 003'];
 
   @Input() intake: Intake = {
-    batch_code: '',
-    program_code: '',
     code: '',
     name: '',
     status: '',

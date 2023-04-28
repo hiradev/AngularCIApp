@@ -11,8 +11,8 @@ export class IntakeTableComponent implements OnInit {
   dataSource = new IntakeDataSource(this.formService);
 
   displayedColumns: string[] = [
-    'batch_code',
-    'program_code',
+    // 'batch_code',
+    // 'program_code',
     'code',
     'name',
     'status'
